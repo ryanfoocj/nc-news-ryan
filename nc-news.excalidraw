@@ -5900,8 +5900,8 @@
     {
       "id": "J4Xkw2Rk4--yyXHcqbMuz",
       "type": "arrow",
-      "x": 1717.0202752976197,
-      "y": 325.8567185174852,
+      "x": 1719.5593377976197,
+      "y": 351.6478104364305,
       "width": 120.0045776367183,
       "height": 70.24917602539062,
       "angle": 0,
@@ -5915,11 +5915,11 @@
       "groupIds": [],
       "strokeSharpness": "round",
       "seed": 496189888,
-      "version": 65,
-      "versionNonce": 206127680,
+      "version": 108,
+      "versionNonce": 457681344,
       "isDeleted": false,
       "boundElements": null,
-      "updated": 1667213106315,
+      "updated": 1667214269563,
       "link": null,
       "locked": false,
       "points": [
@@ -5933,15 +5933,11 @@
         ]
       ],
       "lastCommittedPoint": null,
-      "startBinding": {
-        "elementId": "Rc-Lqs0LusIJn-XZbcI_p",
-        "focus": -1.024296359115804,
-        "gap": 8.71092732747394
-      },
+      "startBinding": null,
       "endBinding": {
-        "elementId": "ZmaitFFO9OPejKBMLdX-K",
-        "focus": -0.5939261109222747,
-        "gap": 3.1687709263392208
+        "elementId": "_TyP6oREWh_wbQlJA_fRx",
+        "focus": -0.7290740489183895,
+        "gap": 3.51104736328125
       },
       "startArrowhead": null,
       "endArrowhead": "arrow"
@@ -5964,20 +5960,16 @@
       "groupIds": [],
       "strokeSharpness": "sharp",
       "seed": 153121344,
-      "version": 44,
-      "versionNonce": 889350720,
+      "version": 45,
+      "versionNonce": 808219072,
       "isDeleted": false,
       "boundElements": [
-        {
-          "id": "J4Xkw2Rk4--yyXHcqbMuz",
-          "type": "arrow"
-        },
         {
           "id": "mymLF8nSSKAudbGHVqCM0",
           "type": "arrow"
         }
       ],
-      "updated": 1667213678953,
+      "updated": 1667214269563,
       "link": null,
       "locked": false,
       "text": "- Article Title, Id\nbody",
@@ -6177,11 +6169,16 @@
       "groupIds": [],
       "strokeSharpness": "sharp",
       "seed": 546492992,
-      "version": 64,
-      "versionNonce": 997108160,
+      "version": 65,
+      "versionNonce": 1571869248,
       "isDeleted": false,
-      "boundElements": null,
-      "updated": 1667213228233,
+      "boundElements": [
+        {
+          "id": "J4Xkw2Rk4--yyXHcqbMuz",
+          "type": "arrow"
+        }
+      ],
+      "updated": 1667214269563,
       "link": null,
       "locked": false,
       "text": "- Small panel for comments",
