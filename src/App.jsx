@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 import Topics from "./components/TopicsComponents/Topics";
 import SortByTopic from "./components/TopicsComponents/SortByTopic";
+import ArticleProvider from "./components/ArticlesComponents/ArticleProvider";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -65,7 +66,10 @@ function App() {
             />
           }
         />
-        <Route path="/articles/:article_id" element={<></>}></Route>
+        <Route
+          path="/articles/:article_id"
+          element={<ArticleProvider articles={articles} />}
+        />
       </Routes>
     </div>
   );
