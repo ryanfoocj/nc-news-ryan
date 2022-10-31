@@ -53,9 +53,9 @@ function App() {
         <Route
           path="/articles"
           element={<Articles setArticles={setArticles} articles={articles} />}
-        ></Route>
+        />
         <Route
-          path="topics/:topic"
+          path="/topics/:topic"
           element={
             <SortByTopic
               setTopicSelect={setTopicSelect}
@@ -64,7 +64,8 @@ function App() {
               topicSelect={topicSelect}
             />
           }
-        ></Route>
+        />
+        <Route path="/articles/:article_id" element={<></>}></Route>
       </Routes>
     </div>
   );

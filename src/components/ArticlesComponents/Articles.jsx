@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import SearchBar from "./SearchBar";
 
 const Articles = ({ articles, setArticles }) => {
+  const handleClick = () => {};
   return (
     <>
       <div className="p-8 text-lg">Articles</div>
@@ -21,6 +22,7 @@ const Articles = ({ articles, setArticles }) => {
               <div
                 className="flex bg-blue-400 border rounded-lg border-solid border-black m-2 p-2 flex-col text-base "
                 key={article_id}
+                onClick={handleClick}
               >
                 <div className="font-serif italic font-medium underline text-base">
                   {title}
