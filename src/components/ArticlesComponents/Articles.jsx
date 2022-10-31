@@ -2,19 +2,9 @@ import { useEffect } from "react";
 import SearchBar from "./SearchBar";
 
 const Articles = ({ articles, setArticles }) => {
-  const fetchArticles = () => {
-    fetch("https://news-api-ryanfoo.herokuapp.com/api/articles").then((res) => {
-      res.json().then((articlesArr) => {
-        setArticles(articlesArr);
-      });
-    });
-  };
-  useEffect(() => {
-    fetchArticles();
-  }, []);
-
   return (
     <>
+      <div className="p-8 text-lg">Articles</div>
       <SearchBar />
       <div className=" flex basis-14 flex-wrap flex-row place-content-center border border-solid border-black bg-transparent  w-9/12 mt-14 mx-64">
         {articles.map(
@@ -28,7 +18,10 @@ const Articles = ({ articles, setArticles }) => {
             created_at,
           }) => {
             return (
-              <div className="flex bg-blue-400 border rounded-lg border-solid border-black m-2 p-2 flex-col text-base ">
+              <div
+                className="flex bg-blue-400 border rounded-lg border-solid border-black m-2 p-2 flex-col text-base "
+                key={article_id}
+              >
                 <div className="font-serif italic font-medium underline text-base">
                   {title}
                 </div>
@@ -37,6 +30,7 @@ const Articles = ({ articles, setArticles }) => {
                   <br></br>
                 </div>
                 Topic: {topic}
+                <br></br>
                 Votes: {votes}
                 <br></br>
                 Article ID: {article_id}
