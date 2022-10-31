@@ -16,7 +16,7 @@ const Articles = ({ articles, setArticles }) => {
   return (
     <>
       <SearchBar />
-      <div className=" grid grid-cols-3  gap-2 w-full place-content-center ">
+      <div className=" flex basis-14 flex-wrap flex-row place-content-center border border-solid border-black bg-transparent  w-9/12 mt-14 mx-64">
         {articles.map(
           ({
             title,
@@ -28,14 +28,21 @@ const Articles = ({ articles, setArticles }) => {
             created_at,
           }) => {
             return (
-              <div className="container flex-col bg-blue-400 border rounded-md border-solid border-black p-3 m-4">
-                {title}
-                {author}
-                {topic}
-                {votes}
-                {article_id}
-                {comment_count}
-                {created_at}
+              <div className="flex bg-blue-400 border rounded-lg border-solid border-black m-2 p-2 flex-col text-base ">
+                <div className="font-serif italic font-medium underline text-base">
+                  {title}
+                </div>
+                <div className="text-slate-800 text-sm italic">
+                  Author:{author} <br></br>
+                  <br></br>
+                </div>
+                Topic: {topic}
+                Votes: {votes}
+                <br></br>
+                Article ID: {article_id}
+                <br></br>
+                Comments: {comment_count} <br></br>
+                Posted: {created_at} <br></br>
               </div>
             );
           }

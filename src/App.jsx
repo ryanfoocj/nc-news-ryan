@@ -8,7 +8,7 @@ function App() {
   const [articles, setArticles] = useState([]);
 
   return (
-    <div className="App">
+    <div className="App bg-orange-300">
       <Header />
       <Routes>
         <Route
