@@ -35,7 +35,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App bg-orange-300">
+    <div className="App bg-orange-200">
       <Header />
       <NavBar />
       <Routes>
