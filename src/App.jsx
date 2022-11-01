@@ -7,6 +7,7 @@ import NavBar from "./components/NavBar";
 import Topics from "./components/TopicsComponents/Topics";
 import SortByTopic from "./components/TopicsComponents/SortByTopic";
 import ArticleProvider from "./components/ArticlesComponents/ArticleProvider";
+import CommentsPage from "./components/ArticlesComponents/CommentsPage";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -65,6 +66,10 @@ function App() {
               topicSelect={topicSelect}
             />
           }
+        />
+        <Route
+          path="/articles/:article_id/comments"
+          element={<CommentsPage />}
         />
         <Route
           path="/articles/:article_id"
