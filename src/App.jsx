@@ -6,35 +6,22 @@ import { useState, useEffect } from "react";
 import NavBar from "./components/NavBar";
 import Topics from "./components/TopicsComponents/Topics";
 import SortByTopic from "./components/TopicsComponents/SortByTopic";
+import ArticleProvider from "./components/ArticlesComponents/ArticleProvider";
+import CommentsPage from "./components/ArticlesComponents/CommentsPage";
+import { fetchArticles, fetchTopics } from "./Api.js";
 
 function App() {
   const [articles, setArticles] = useState([]);
   const [topics, setTopics] = useState([]);
   const [topicSelect, setTopicSelect] = useState("");
 
-  const fetchArticles = () => {
-    fetch("https://news-api-ryanfoo.herokuapp.com/api/articles").then((res) => {
-      res.json().then((articlesArr) => {
-        setArticles(articlesArr);
-      });
-    });
-  };
-
-  const fetchTopics = () => {
-    fetch("https://news-api-ryanfoo.herokuapp.com/api/topics").then((res) => {
-      res.json().then((topicsArr) => {
-        setTopics(topicsArr);
-      });
-    });
-  };
-
   useEffect(() => {
-    fetchArticles();
-    fetchTopics();
+    fetchArticles(setArticles);
+    fetchTopics(setTopics);
   }, []);
 
   return (
-    <div className="App bg-orange-300">
+    <div className="App bg-color1">
       <Header />
       <NavBar />
       <Routes>
@@ -53,9 +40,9 @@ function App() {
         <Route
           path="/articles"
           element={<Articles setArticles={setArticles} articles={articles} />}
-        ></Route>
+        />
         <Route
-          path="topics/:topic"
+          path="/topics/:topic"
           element={
             <SortByTopic
               setTopicSelect={setTopicSelect}
@@ -64,7 +51,15 @@ function App() {
               topicSelect={topicSelect}
             />
           }
-        ></Route>
+        />
+        <Route
+          path="/articles/:article_id/comments"
+          element={<CommentsPage />}
+        />
+        <Route
+          path="/articles/:article_id"
+          element={<ArticleProvider articles={articles} />}
+        />
       </Routes>
     </div>
   );
