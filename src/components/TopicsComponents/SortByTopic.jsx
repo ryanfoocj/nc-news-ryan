@@ -24,7 +24,7 @@ const SortByTopic = ({ topicSelect, articles, topics, setTopicSelect }) => {
           }) => {
             return (
               <div
-                className="flex bg-blue-400 border rounded-lg border-solid border-black m-2 p-2 flex-col text-base "
+                className="flex bg-blue-400 border rounded-lg border-solid border-black m-3 p-2 flex-col text-base "
                 key={article_id}
               >
                 <div className="font-serif italic font-medium underline text-base">
