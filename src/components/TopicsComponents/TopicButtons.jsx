@@ -9,7 +9,7 @@ const TopicButtons = ({ topics, setTopicSelect }) => {
         return (
           <Link to={`/topics/${slug}`} key={slug}>
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8 m-4 rounded-full"
+              className="bg-aqueous  border border-black font-bold py-2 px-8 m-4 rounded-full"
               onClick={handleClick}
               value={slug}
             >

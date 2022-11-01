@@ -21,7 +21,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App bg-orange-200">
+    <div className="App bg-color1">
       <Header />
       <NavBar />
       <Routes>
