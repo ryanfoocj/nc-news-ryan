@@ -8,31 +8,16 @@ import Topics from "./components/TopicsComponents/Topics";
 import SortByTopic from "./components/TopicsComponents/SortByTopic";
 import ArticleProvider from "./components/ArticlesComponents/ArticleProvider";
 import CommentsPage from "./components/ArticlesComponents/CommentsPage";
+import { fetchArticles, fetchTopics } from "./Api.js";
 
 function App() {
   const [articles, setArticles] = useState([]);
   const [topics, setTopics] = useState([]);
   const [topicSelect, setTopicSelect] = useState("");
 
-  const fetchArticles = () => {
-    fetch("https://news-api-ryanfoo.herokuapp.com/api/articles").then((res) => {
-      res.json().then((articlesArr) => {
-        setArticles(articlesArr);
-      });
-    });
-  };
-
-  const fetchTopics = () => {
-    fetch("https://news-api-ryanfoo.herokuapp.com/api/topics").then((res) => {
-      res.json().then((topicsArr) => {
-        setTopics(topicsArr);
-      });
-    });
-  };
-
   useEffect(() => {
-    fetchArticles();
-    fetchTopics();
+    fetchArticles(setArticles);
+    fetchTopics(setTopics);
   }, []);
 
   return (
