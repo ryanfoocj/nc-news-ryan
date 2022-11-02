@@ -15,4 +15,15 @@ const fetchTopics = (setTopics) => {
     });
   });
 };
-export { fetchArticles, fetchTopics };
+
+const fetchComments = (setComments, article_id) => {
+  fetch(
+    `https://news-api-ryanfoo.herokuapp.com/api/articles/${article_id}/comments`
+  ).then((res) => {
+    res.json().then((data) => {
+      setComments(data);
+    });
+  });
+};
+
+export { fetchArticles, fetchTopics, fetchComments };

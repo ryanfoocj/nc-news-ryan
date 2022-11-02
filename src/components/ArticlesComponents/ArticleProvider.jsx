@@ -2,21 +2,12 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import InfoCard from "./InfoCard";
 import CommentsPanel from "./CommentsPanel";
+import { fetchComments } from "../../Api";
 
 const ArticleProvider = () => {
   const { article_id } = useParams();
   const [articleState, setArticle] = useState([{}]);
   const [comments, setComments] = useState([{}]);
-
-  const fetchComments = () => {
-    fetch(
-      `https://news-api-ryanfoo.herokuapp.com/api/articles/${article_id}/comments`
-    ).then((res) => {
-      res.json().then((data) => {
-        setComments(data);
-      });
-    });
-  };
 
   useEffect(() => {
     fetch(
@@ -26,7 +17,7 @@ const ArticleProvider = () => {
         setArticle(article);
       });
     });
-    fetchComments();
+    fetchComments(setComments, article_id);
   }, []);
 
   return (
@@ -38,11 +29,7 @@ const ArticleProvider = () => {
         </div>
       </h1>
       <InfoCard selectedArticle={articleState[0]} />
-<<<<<<< HEAD
       <div className="text-3xl tab:text-center mob:text-left  row-start-2 row-end-5 col-start-1 col-end-6 p-4 m-4  ">
-=======
-      <div className="text-3xl text-left row-start-2 row-end-5 col-start-1 col-end-6 p-4 m-4 ">
->>>>>>> f3be3e01791c37a79257009198b408bc9da9ee6f
         {articleState[0].body}
       </div>
       <CommentsPanel
