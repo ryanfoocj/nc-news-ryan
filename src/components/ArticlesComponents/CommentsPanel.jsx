@@ -1,23 +1,28 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import DateFormatter from "../UtilityFunctions/DateFormatter";
 
 const CommentsPanel = ({ article, article_id, comments }) => {
+  const topComments = comments.sort((a, b) => a.votes - b.votes).slice(0, 3);
+  console.log(topComments);
+
   return (
-    <section className="bg-deeppurp row-start-3 row-span-3 col-start-6 col-end-9 flex flex-col items-center justify-center border-black rounded-lg border min-h-full mx-8 h-5/6">
-      <h1 className="text-xl py-4 my-2">User Comments</h1>
-      <section className=" bg-color1 relative flex flex-col border-black border rounded-lg w-11/12 overflow-scroll overflow-x-hidden scroll-smooth h-5/6">
-        {comments.map(({ author, body, comment_id, created_at, votes }) => {
+    <section className="bg-deeppurp row-start-3 row-span-3 col-start-6 col-end-9 flex flex-col items-center justify-center border-black rounded-lg border min-h-full mx-8">
+      <h1 className="text-xl py-4 my-2">Top Comments</h1>
+      <section className=" bg-color1 relative flex flex-col  border-black border rounded-lg w-11/12 h-5/6 place-content-evenly">
+        {topComments.map(({ author, body, comment_id, created_at, votes }) => {
+          /* const [date, time] = DateFormatter(created_at); */
           return (
             <div
               key={comment_id}
-              className="bg-darkpurp p-2 m-2 border rounded-lg"
+              className="bg-darkpurp p-2 m-2 border rounded-lg  text-ellipsis w-fit h-24"
             >
-              <div className="text-left">
+              <div className="text-left text-sm">
                 {author} {comment_id}
               </div>
-              <p>{body}</p>
-              <div>
-                {created_at} {votes}
+              <p className="text-base">{body}</p>
+              <div className="text-sm">
+                {/* {date} {time} */} {votes}
               </div>
             </div>
           );
