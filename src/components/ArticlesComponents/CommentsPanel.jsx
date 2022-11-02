@@ -9,8 +9,13 @@ const CommentsPanel = ({ article_id, comments }) => {
         {comments.map(({ author, body, comment_id, created_at, votes }) => {
           return (
             <div
+<<<<<<< HEAD
               key={comment_id}
               className="bg-darkpurp p-2 m-2 border rounded-lg"
+=======
+              className="p-2 m-2 border border-black rounded-lg"
+              key={author + created_at}
+>>>>>>> f3be3e01791c37a79257009198b408bc9da9ee6f
             >
               <div className="text-left">
                 {author} {comment_id}
