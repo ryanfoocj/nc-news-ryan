@@ -17,14 +17,16 @@ const InfoCard = ({
   }, []); */
 
   const handleClick = (event) => {
+    const request = { inc_votes: 1 };
     if (event.target.value === "upvote") {
       setChangeVotes((changeVotes) => changeVotes + 1);
     }
 
     if (event.target.value === "downvote") {
       setChangeVotes((changeVotes) => changeVotes - 1);
+      request.inc_votes = -1;
     }
-    const request = { inc_votes: 1 };
+
     setErr(null);
 
     const options = {
@@ -44,7 +46,7 @@ const InfoCard = ({
           setErr("Oops, something has gone wrong!");
           if (event.target.value === "upvote") {
             setChangeVotes((changeVotes) => changeVotes - 1);
-          } else {
+          } else if (event.target.value === "downvote") {
             setChangeVotes((changeVotes) => changeVotes + 1);
           }
         });
