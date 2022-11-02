@@ -8,23 +8,28 @@ import Topics from "./components/TopicsComponents/Topics";
 import SortByTopic from "./components/TopicsComponents/SortByTopic";
 import ArticleProvider from "./components/ArticlesComponents/ArticleProvider";
 import CommentsPage from "./components/ArticlesComponents/CommentsPage";
-import { fetchArticles, fetchTopics } from "./Api.js";
+import Login from "./components/Login";
+import { fetchArticles, fetchTopics, fetchUsers } from "./Api.js";
 
 function App() {
   const [articles, setArticles] = useState([]);
   const [topics, setTopics] = useState([]);
+  const [users, setUsers] = useState([]);
   const [topicSelect, setTopicSelect] = useState("");
 
   useEffect(() => {
     fetchArticles(setArticles);
     fetchTopics(setTopics);
+    fetchUsers(setUsers);
   }, []);
 
   return (
-    <div className="App bg-color1">
+    <div className="App bg-color1 h-screen flex flex-col">
       <Header />
+
       <NavBar />
       <Routes>
+        <Route path="/" element={<Login users={users} />} />
         <Route
           path="/topics"
           element={

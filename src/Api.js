@@ -15,4 +15,13 @@ const fetchTopics = (setTopics) => {
     });
   });
 };
-export { fetchArticles, fetchTopics };
+
+const fetchUsers = (setUsers) => {
+  fetch("https://news-api-ryanfoo.herokuapp.com/api/users").then((res) => {
+    res.json().then((data) => {
+      setUsers(data);
+    });
+  });
+};
+
+export { fetchArticles, fetchTopics, fetchUsers };
