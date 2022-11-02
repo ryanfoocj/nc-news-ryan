@@ -13,7 +13,6 @@ const ArticleProvider = () => {
       `https://news-api-ryanfoo.herokuapp.com/api/articles/${article_id}/comments`
     ).then((res) => {
       res.json().then((data) => {
-        console.log(data);
         setComments(data);
       });
     });
