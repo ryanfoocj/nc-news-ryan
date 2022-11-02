@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+const colors = require("tailwindcss/colors");
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -9,7 +9,12 @@ module.exports = {
       darkpurp: "#98A8F8",
       button: "#F9F5EB",
       buttonh: "#EAE3D2",
+      bluey: "#607EAA",
+      rando: "#CAE4DB",
+      black: colors.black,
+      white: colors.white,
     },
+
     screens: {
       mo: "640px",
       // => @media (min-width: 576px) { ... }

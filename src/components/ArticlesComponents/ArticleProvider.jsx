@@ -33,6 +33,7 @@ const ArticleProvider = () => {
         {articleState[0].body}
       </div>
       <CommentsPanel
+        article={articleState[0]}
         article_id={articleState[0].article_id}
         comments={comments}
       />

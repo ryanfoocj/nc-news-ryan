@@ -10,7 +10,7 @@ const Articles = ({ articles, setArticles }) => {
         Articles
       </div>
       <SearchBar />
-      <div className=" grid mob:grid-cols-1 tab:grid-cols-2 lap:grid-cols-3  p-8 w-9/12 mt-14 m-64 place-content-center border border-solid border-black bg-transparent rounded-lg ">
+      <div className=" grid mob:grid-cols-1 tab:grid-cols-2 lap:grid-cols-3 gap-4 p-8 w-9/12 mt-14 m-64 place-content-center border border-solid border-black bg-transparent rounded-lg ">
         {articles.map(
           ({
             title,
@@ -23,7 +23,7 @@ const Articles = ({ articles, setArticles }) => {
           }) => {
             return (
               <div
-                className="flex bg-deeppurp border rounded-lg border-solid border-black m-3 p-2 flex-col text-base "
+                className="flex bg-deeppurp border rounded-lg border-solid border-black m-3 p-2 flex-col text-base  transition duration-300 ease-in-out delay-150 hover:bg-darkpurp hover:-translate-y-1 hover:scale-110"
                 key={article_id}
                 onClick={handleClick}
               >
