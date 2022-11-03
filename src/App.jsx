@@ -11,6 +11,7 @@ import ArticleProvider from "./components/ArticlesComponents/ArticleProvider";
 import CommentsPage from "./components/ArticlesComponents/CommentsPage";
 import Login from "./components/Login";
 import { fetchArticles, fetchTopics, fetchUsers } from "./Api.js";
+import { CommentsContext } from ".";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -18,6 +19,7 @@ function App() {
   const [users, setUsers] = useState([]);
   const [topicSelect, setTopicSelect] = useState("");
   const [currUser, setCurrUser] = useState(null);
+  const [comments, setComments] = useState([{}]);
 
   useEffect(() => {
     fetchArticles(setArticles);
@@ -27,49 +29,53 @@ function App() {
 
   return (
     <UserContext.Provider value={{ currUser, setCurrUser }}>
-      <div className="App bg-color1 h-screen flex flex-col">
-        <Header />
+      <CommentsContext.Provider value={{ setComments, comments }}>
+        <div className="App bg-color1 h-screen flex flex-col">
+          <Header />
 
-        {currUser ? <NavBar /> : null}
-        <Routes>
-          <Route path="/" element={<Login users={users} />} />
-          <Route
-            path="/topics"
-            element={
-              <Topics
-                articles={articles}
-                topics={topics}
-                setTopicSelect={setTopicSelect}
-              />
-            }
-          >
-            Topics
-          </Route>
-          <Route
-            path="/articles"
-            element={<Articles setArticles={setArticles} articles={articles} />}
-          />
-          <Route
-            path="/topics/:topic"
-            element={
-              <SortByTopic
-                setTopicSelect={setTopicSelect}
-                topics={topics}
-                articles={articles}
-                topicSelect={topicSelect}
-              />
-            }
-          />
-          <Route
-            path="/articles/:article_id/comments"
-            element={<CommentsPage />}
-          />
-          <Route
-            path="/articles/:article_id"
-            element={<ArticleProvider articles={articles} />}
-          />
-        </Routes>
-      </div>
+          {currUser ? <NavBar /> : null}
+          <Routes>
+            <Route path="/" element={<Login users={users} />} />
+            <Route
+              path="/topics"
+              element={
+                <Topics
+                  articles={articles}
+                  topics={topics}
+                  setTopicSelect={setTopicSelect}
+                />
+              }
+            >
+              Topics
+            </Route>
+            <Route
+              path="/articles"
+              element={
+                <Articles setArticles={setArticles} articles={articles} />
+              }
+            />
+            <Route
+              path="/topics/:topic"
+              element={
+                <SortByTopic
+                  setTopicSelect={setTopicSelect}
+                  topics={topics}
+                  articles={articles}
+                  topicSelect={topicSelect}
+                />
+              }
+            />
+            <Route
+              path="/articles/:article_id/comments"
+              element={<CommentsPage />}
+            />
+            <Route
+              path="/articles/:article_id"
+              element={<ArticleProvider articles={articles} />}
+            />
+          </Routes>
+        </div>
+      </CommentsContext.Provider>
     </UserContext.Provider>
   );
 }

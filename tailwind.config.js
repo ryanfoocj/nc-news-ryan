@@ -16,6 +16,7 @@ module.exports = {
       rando: "#CAE4DB",
       black: colors.black,
       white: colors.white,
+      red: colors.red,
     },
 
     screens: {

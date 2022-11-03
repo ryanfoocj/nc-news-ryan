@@ -1,20 +1,13 @@
 import { useState, useEffect } from "react";
+import moment from "moment/moment";
 
 const InfoCard = ({
   selectedArticle: { title, article_id, author, topic, votes, created_at },
 }) => {
   const [changeVotes, setChangeVotes] = useState(0);
   const [err, setErr] = useState(null);
-
-  /* useEffect(() => {
-    fetch(
-      `https://news-api-ryanfoo.herokuapp.com/api/articles/${article_id}`
-    ).then((res) => {
-      res.json().then((data) => {
-        setVote(data[0].votes);
-      });
-    });
-  }, []); */
+  const date = moment(created_at).format("DD/MM/YY");
+  const time = moment(created_at).format("hh:mm A");
 
   const handleClick = (event) => {
     const request = { inc_votes: 1 };
@@ -55,11 +48,13 @@ const InfoCard = ({
   if (err) return <p>{err}</p>;
 
   return (
-    <section className="flex flex-col col-start-6 col-end-9 row-start-1 row-span-2 border border-black rounded-lg p-8 m-8 h-5/6">
+    <section className="flex flex-col col-start-6 col-end-9 row-start-1 row-span-2 border border-black rounded-lg p-8 m-8 h-5/6 bg-deeppurp">
       <div className="text-xl text-left font-serif">
         {title} by <div className="italic">{author}</div>
       </div>
-      <div className=" py-4">{created_at}</div>
+      <div className=" py-4">
+        {date} {time}
+      </div>
       <div className="text-right">
         Article ID: {article_id} {topic}
       </div>

@@ -1,22 +1,38 @@
-import { useEffect } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useEffect, useContext, useState } from "react";
+import { useLocation } from "react-router-dom";
 import moment from "moment/moment";
+import { CommentsContext } from "../..";
+import CommentInput from "./CommentInput";
+import { fetchComments } from "../../Api";
 
 const CommentsPage = () => {
   const location = useLocation();
-  const { comments, article } = location.state;
+  const { article } = location.state;
+  const [newComment, setNewComment] = useState("");
+  const { comments, setComments } = useContext(CommentsContext);
+
+  useEffect(() => {
+    fetchComments(setComments, article.article_id);
+  }, [newComment]);
 
   return (
-    <section>
-      <h2 className="py-6 m-4 mob:text-sm tab:text-base lap:text-xl desktop:text-2xl font-roboto font-bold underline">
+    <section className="flex flex-col items-center">
+      <h2 className="py-6 m-4 mob:text-sm tab:text-base lap:text-xl desktop:text-2xl font-roboto font-bold underline ">
         Comments for "{article.title}"
       </h2>
-      <div className=" bg-color1 grid grid-cols-1 p-8 w-9/12 mt-14 m-64 place-content-center border border-solid border-black bg-transparent rounded-lg ">
+      <CommentInput
+        article_id={article.article_id}
+        setNewComment={setNewComment}
+      />
+      <div className=" bg-color1 grid grid-cols-1 p-8 w-9/12 mt-8 m-64 place-content-center border border-solid border-black bg-transparent rounded-lg ">
         {comments.map(({ author, body, comment_id, created_at, votes }) => {
           const date = moment(created_at).format("DD/MM/YY");
           const time = moment(created_at).format("hh:mm A");
           return (
-            <section className="flex flex-col p-2">
+            <section
+              className="flex flex-col p-2"
+              key={`${comment_id} ${author}`}
+            >
               <div className="  bg-bluey text-white px-2 mx-2 flex flex-wrap text-left border border-black rounded-lg max-w-max ">
                 {author} posted on {date}
               </div>

@@ -7,7 +7,6 @@ import { fetchComments } from "../../Api";
 const ArticleProvider = () => {
   const { article_id } = useParams();
   const [articleState, setArticle] = useState([{}]);
-  const [comments, setComments] = useState([{}]);
 
   useEffect(() => {
     fetch(
@@ -17,7 +16,6 @@ const ArticleProvider = () => {
         setArticle(article);
       });
     });
-    fetchComments(setComments, article_id);
   }, []);
 
   return (
@@ -32,12 +30,7 @@ const ArticleProvider = () => {
       <div className="text-3xl tab:text-center mob:text-left  row-start-2 row-end-5 col-start-1 col-end-6 p-4 m-4  ">
         {articleState[0].body}
       </div>
-      <CommentsPanel
-        article={articleState[0]}
-        article_id={article_id}
-        comments={comments}
-        setComments={setComments}
-      />
+      <CommentsPanel article={articleState[0]} article_id={article_id} />
     </div>
   );
 };

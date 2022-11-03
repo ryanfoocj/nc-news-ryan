@@ -13,3 +13,4 @@ root.render(
 );
 
 export const UserContext = createContext();
+export const CommentsContext = createContext();

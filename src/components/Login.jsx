@@ -13,7 +13,7 @@ const Login = ({ users }) => {
     if (currUser)
       setTimeout(() => {
         navigate("articles");
-      }, 5000);
+      }, 4000);
   }, [currUser]);
 
   const handleChange = (event) => {
@@ -73,18 +73,22 @@ const Login = ({ users }) => {
         <p>Visiting as Anonymous, enjoy your stay!</p>
       )}
       {!valid ? (
-        <p className="text-red p-2">Sorry, that username doesn't exist!</p>
+        <p className=" text-red-700 p-2">Sorry, that username doesn't exist!</p>
       ) : null}
 
       {!currUser ? (
-        <p className="text-sm my-8 p-2">
-          Click{" "}
-          <button onClick={handleAnon} className="text-bluey">
-            here{" "}
-          </button>{" "}
-          to log in as anonymous instead{" "}
-          <p>(You will not be able to vote, post articles or comment)</p>
-        </p>
+        <>
+          <p className="text-sm my-4 p-2">
+            Click{" "}
+            <button onClick={handleAnon} className="text-bluey">
+              here{" "}
+            </button>{" "}
+            to log in anonymously instead{" "}
+          </p>
+          <p className="text-sm p-2">
+            (Anonymous users cannot vote, post articles or comment)
+          </p>
+        </>
       ) : null}
       {currUser ? <p>We are redirecting you...</p> : null}
     </div>

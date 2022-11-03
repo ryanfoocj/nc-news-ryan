@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 import SearchBar from "./SearchBar";
 
-const Articles = ({ articles, setArticles }) => {
+const Articles = ({ articles }) => {
   const handleClick = () => {};
   return (
     <>
-      <div className="p-8 mob:text-sm tab:text-base lap:text-lg desktop:text-xl">
+      <div className="p-8 mob:text-sm tab:text-base lap:text-xl desktop:text-2xl">
         Articles
       </div>
       <SearchBar />
