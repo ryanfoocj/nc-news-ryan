@@ -36,6 +36,7 @@ const ArticleProvider = () => {
         article={articleState[0]}
         article_id={articleState[0].article_id}
         comments={comments}
+        setComments={setComments}
       />
     </div>
   );
