@@ -4,8 +4,9 @@ import { fetchComments } from "../../Api";
 import moment from "moment/moment";
 
 const CommentsPanel = ({ article, article_id, comments, setComments }) => {
-  const topComments = comments.sort((a, b) => a.votes - b.votes).slice(0, 2);
-  console.log(comments);
+  const topComments = [...comments]
+    .sort((a, b) => a.votes - b.votes)
+    .slice(0, 2);
 
   return (
     <section className="bg-deeppurp row-start-3 row-span-3 col-start-6 col-end-9 flex flex-col items-center justify-center border-black rounded-lg border min-h-full mx-8">

@@ -23,7 +23,7 @@ const Articles = ({ articles, setArticles }) => {
           }) => {
             return (
               <div
-                className="flex bg-deeppurp border rounded-lg border-solid border-black m-3 p-2 flex-col text-base  transition duration-300 ease-in-out delay-150 hover:bg-darkpurp hover:-translate-y-1 hover:scale-110"
+                className="flex bg-deeppurp border rounded-lg border-solid border-black m-3 p-2 flex-col text-base transition duration-300 ease-in-out delay-150 hover:bg-darkpurp hover:-translate-y-1 hover:scale-110"
                 key={article_id}
                 onClick={handleClick}
               >
