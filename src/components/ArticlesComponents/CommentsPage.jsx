@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import DateFormatter from "../UtilityFunctions/DateFormatter";
+import moment from "moment/moment";
 
 const CommentsPage = () => {
   const location = useLocation();
@@ -13,7 +13,8 @@ const CommentsPage = () => {
       </h2>
       <div className=" bg-color1 grid grid-cols-1 p-8 w-9/12 mt-14 m-64 place-content-center border border-solid border-black bg-transparent rounded-lg ">
         {comments.map(({ author, body, comment_id, created_at, votes }) => {
-          const [date, time] = DateFormatter(created_at);
+          const date = moment(created_at).format("DD/MM/YY");
+          const time = moment(created_at).format("hh:mm A");
           return (
             <section className="flex flex-col p-2">
               <div className="  bg-bluey text-white px-2 mx-2 flex flex-wrap text-left border border-black rounded-lg max-w-max ">
