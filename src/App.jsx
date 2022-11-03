@@ -30,7 +30,7 @@ function App() {
   return (
     <UserContext.Provider value={{ currUser, setCurrUser }}>
       <CommentsContext.Provider value={{ setComments, comments }}>
-        <div className="App bg-color1 h-screen flex flex-col">
+        <section className="App bg-color1 h-screen flex flex-col">
           <Header />
 
           {currUser ? <NavBar /> : null}
@@ -74,7 +74,7 @@ function App() {
               element={<ArticleProvider articles={articles} />}
             />
           </Routes>
-        </div>
+        </section>
       </CommentsContext.Provider>
     </UserContext.Provider>
   );

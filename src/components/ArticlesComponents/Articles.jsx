@@ -28,7 +28,7 @@ const Articles = ({ articles }) => {
                 onClick={handleClick}
               >
                 <Link to={`/articles/${article_id}`} key={article_id}>
-                  <div className="font-serif italic font-medium underline mob:text-base tab:text-lg lap:text-xl desktop:text-2xl max-w-sm">
+                  <div className="font-gentium italic font-medium underline mob:text-base tab:text-lg lap:text-xl desktop:text-2xl max-w-sm">
                     {title}
                   </div>
                   <div className="text-slate-800 italic mob:text-xs tab:text-sm lap:text-base ">

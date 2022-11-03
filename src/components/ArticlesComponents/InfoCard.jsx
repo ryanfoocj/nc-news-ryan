@@ -49,7 +49,7 @@ const InfoCard = ({
 
   return (
     <section className="flex flex-col col-start-6 col-end-9 row-start-1 row-span-2 border border-black rounded-lg p-8 m-8 h-5/6 bg-deeppurp">
-      <div className="text-xl text-left font-serif">
+      <div className="text-xl text-left font-gentium">
         {title} by <div className="italic">{author}</div>
       </div>
       <div className=" py-4">

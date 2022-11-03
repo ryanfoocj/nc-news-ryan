@@ -63,7 +63,7 @@ const Login = ({ users }) => {
           <div className="flex flex-col justify-center items-center">
             <p>Nice to see you again, {currUser.username}.</p>
             <img
-              className=" p-6 w-1/2"
+              className=" p-1 m-4 border-2 border-black w-32 h-32 rounded-full "
               alt={`${currUser.username}'s avatar`}
               src={currUser.avatar_url}
             ></img>
@@ -83,7 +83,7 @@ const Login = ({ users }) => {
             <button onClick={handleAnon} className="text-bluey">
               here{" "}
             </button>{" "}
-            to log in anonymously instead{" "}
+            to log in anonymously instead
           </p>
           <p className="text-sm p-2">
             (Anonymous users cannot vote, post articles or comment)

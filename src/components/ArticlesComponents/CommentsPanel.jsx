@@ -24,10 +24,10 @@ const CommentsPanel = ({ article, article_id }) => {
               key={comment_id}
               className="bg-darkpurp p-2 m-2 border rounded-lg  text-ellipsis w-fit h-1/2"
             >
-              <div className="text-left text-sm underline">
+              <div className="text-left text-sm underline font-gentium">
                 {author} said on {date} at {time} :
               </div>
-              <p className="text-base text-left">{body}</p>
+              <p className="text-base text-left font-serif">{body}</p>
               <div className="text-sm">Current Votes: {votes}</div>
             </div>
           );

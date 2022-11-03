@@ -17,7 +17,7 @@ const CommentsPage = () => {
 
   return (
     <section className="flex flex-col items-center">
-      <h2 className="py-6 m-4 mob:text-sm tab:text-base lap:text-xl desktop:text-2xl font-roboto font-bold underline ">
+      <h2 className="py-6 m-4 mob:text-sm tab:text-base lap:text-xl desktop:text-2xl font-serif font-bold underline ">
         Comments for "{article.title}"
       </h2>
       <CommentInput
@@ -33,7 +33,7 @@ const CommentsPage = () => {
               className="flex flex-col p-2"
               key={`${comment_id} ${author}`}
             >
-              <div className="  bg-bluey text-white px-2 mx-2 flex flex-wrap text-left border border-black rounded-lg max-w-max ">
+              <div className=" font-serif bg-bluey text-white px-2 mx-2 flex flex-wrap text-left border border-black rounded-lg max-w-max ">
                 {author} posted on {date}
               </div>
               <div
@@ -42,7 +42,7 @@ const CommentsPage = () => {
               >
                 <div className="text-left">At {time}: </div>
 
-                <p>{body}</p>
+                <p className="font-opensans">{body}</p>
                 <div>Current Votes: {votes}</div>
                 <div className="text-left text-xs">
                   Comment ID: {comment_id}
