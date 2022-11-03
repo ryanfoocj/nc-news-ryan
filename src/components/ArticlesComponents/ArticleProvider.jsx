@@ -34,7 +34,7 @@ const ArticleProvider = () => {
       </div>
       <CommentsPanel
         article={articleState[0]}
-        article_id={articleState[0].article_id}
+        article_id={article_id}
         comments={comments}
         setComments={setComments}
       />

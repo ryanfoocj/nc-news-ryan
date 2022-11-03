@@ -8,7 +8,7 @@ import Topics from "./components/TopicsComponents/Topics";
 import SortByTopic from "./components/TopicsComponents/SortByTopic";
 import ArticleProvider from "./components/ArticlesComponents/ArticleProvider";
 import CommentsPage from "./components/ArticlesComponents/CommentsPage";
-import { fetchArticles, fetchComments, fetchTopics } from "./Api.js";
+import { fetchArticles, fetchTopics } from "./Api.js";
 
 function App() {
   const [articles, setArticles] = useState([]);
