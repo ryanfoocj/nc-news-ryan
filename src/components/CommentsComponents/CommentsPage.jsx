@@ -4,17 +4,19 @@ import moment from "moment/moment";
 import { CommentsContext, UserContext } from "../..";
 import CommentInput from "./CommentInput";
 import { fetchComments } from "../../Api";
+import DeleteComment from "./DeleteComment";
 
 const CommentsPage = () => {
   const location = useLocation();
   const { article } = location.state;
   const [newComment, setNewComment] = useState("");
+  const [deletedComment, setDeletedComment] = useState(null);
   const { comments, setComments } = useContext(CommentsContext);
   const { currUser } = useContext(UserContext);
 
   useEffect(() => {
     fetchComments(setComments, article.article_id);
-  }, [newComment]);
+  }, [newComment, deletedComment]);
 
   return (
     <section className="flex flex-col items-center">
@@ -47,7 +49,7 @@ const CommentsPage = () => {
               </div>
               <div
                 key={comment_id}
-                className="bg-darkpurp p-2 m-2 border rounded-lg"
+                className="bg-darkpurp p-2 m-2 border rounded-lg flex flex-col"
               >
                 <p className="text-left">At {time}: </p>
 
@@ -56,6 +58,12 @@ const CommentsPage = () => {
                 <div className="text-left text-xs">
                   Comment ID: {comment_id}
                 </div>
+                {currUser.username === author ? (
+                  <DeleteComment
+                    comment_id={comment_id}
+                    setDeletedComment={setDeletedComment}
+                  />
+                ) : null}
               </div>
             </section>
           );
