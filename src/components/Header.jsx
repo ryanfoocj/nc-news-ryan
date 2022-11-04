@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Header = () => {
   const { currUser, setCurrUser } = useContext(UserContext);
   const handleLogout = () => {
-    setCurrUser = null;
+    setCurrUser(null);
   };
   return (
     <div className="flex justify-between">
