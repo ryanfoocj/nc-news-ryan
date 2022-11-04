@@ -26,7 +26,7 @@ const fetchUsers = (setUsers) => {
 
 const fetchComments = (setComments, article_id) => {
   fetch(
-    `https://news-api-ryanfoo.herokuapp.com/api/articles/${article_id}/comments`
+    `https://news-api-ryanfoo.herokuapp.com/api/articles/${article_id}/comments?sortBy=created_at`
   ).then((res) => {
     res.json().then((data) => {
       setComments(data);

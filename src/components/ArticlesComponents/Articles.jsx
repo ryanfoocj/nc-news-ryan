@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 
 import SearchBar from "./SearchBar";
 
-const Articles = ({ articles, setArticles }) => {
+const Articles = ({ articles }) => {
   const handleClick = () => {};
   return (
     <>
-      <div className="p-8 mob:text-sm tab:text-base lap:text-lg desktop:text-xl">
+      <div className="p-8  mob:text-sm tab:text-base lap:text-xl desktop:text-2xl font-gentium underline">
         Articles
       </div>
       <SearchBar />
@@ -23,12 +23,12 @@ const Articles = ({ articles, setArticles }) => {
           }) => {
             return (
               <div
-                className="flex bg-deeppurp border rounded-lg border-solid border-black m-3 p-2 flex-col text-base  transition duration-300 ease-in-out delay-150 hover:bg-darkpurp hover:-translate-y-1 hover:scale-110"
+                className="flex bg-deeppurp border rounded-lg border-solid border-black m-3 p-2 flex-col text-base transition duration-300 ease-in-out delay-150 hover:bg-darkpurp hover:-translate-y-1 hover:scale-110"
                 key={article_id}
                 onClick={handleClick}
               >
                 <Link to={`/articles/${article_id}`} key={article_id}>
-                  <div className="font-serif italic font-medium underline mob:text-base tab:text-lg lap:text-xl desktop:text-2xl max-w-sm">
+                  <div className="font-gentium italic font-medium underline mob:text-base tab:text-lg lap:text-xl desktop:text-2xl max-w-sm">
                     {title}
                   </div>
                   <div className="text-slate-800 italic mob:text-xs tab:text-sm lap:text-base ">
