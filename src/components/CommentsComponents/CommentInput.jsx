@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
-import { CommentsContext, UserContext } from "../..";
+import { UserContext } from "../..";
 
 const CommentInput = ({ article_id, setNewComment }) => {
   const [input, setInput] = useState("");
   const [err, setErr] = useState(null);
+  const [commentStatus, setCommentStatus] = useState(false);
   const { currUser } = useContext(UserContext);
   const { username } = currUser;
 
@@ -13,6 +14,7 @@ const CommentInput = ({ article_id, setNewComment }) => {
 
   const handleSubmit = (event) => {
     setErr(null);
+    setCommentStatus(false);
     event.preventDefault();
     const options = {
       method: "POST",
@@ -25,6 +27,8 @@ const CommentInput = ({ article_id, setNewComment }) => {
     )
       .then((res) => {
         setNewComment(input);
+        setCommentStatus(true);
+        setInput("");
       })
       .catch((err) => {
         setErr("Your comment request timed out, please try again.");
@@ -45,10 +49,17 @@ const CommentInput = ({ article_id, setNewComment }) => {
           value={input}
           onChange={handleInput}
         ></textarea>
-        <button className="p-2 my-4 border rounded-lg" type="submit">
-          {" "}
+        <button
+          className="  p-2 my-4 border rounded-lg bg-darkpurp transition duration-300 ease-in-out delay-150 hover:bg-bluey hover:-translate-y-1 hover:scale-110"
+          type="submit"
+        >
           Post!
         </button>
+        {commentStatus ? (
+          <p className="font-opensans text-green-500 ">
+            Your comment has been posted below!
+          </p>
+        ) : null}
       </form>
     </section>
   );

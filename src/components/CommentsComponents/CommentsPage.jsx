@@ -1,7 +1,7 @@
 import { useEffect, useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
 import moment from "moment/moment";
-import { CommentsContext } from "../..";
+import { CommentsContext, UserContext } from "../..";
 import CommentInput from "./CommentInput";
 import { fetchComments } from "../../Api";
 
@@ -10,6 +10,7 @@ const CommentsPage = () => {
   const { article } = location.state;
   const [newComment, setNewComment] = useState("");
   const { comments, setComments } = useContext(CommentsContext);
+  const { currUser } = useContext(UserContext);
 
   useEffect(() => {
     fetchComments(setComments, article.article_id);
@@ -20,10 +21,18 @@ const CommentsPage = () => {
       <h2 className="py-6 m-4 mob:text-sm tab:text-base lap:text-xl desktop:text-2xl font-serif font-bold underline ">
         Comments for "{article.title}"
       </h2>
-      <CommentInput
-        article_id={article.article_id}
-        setNewComment={setNewComment}
-      />
+      {currUser ? (
+        currUser !== "anon" ? (
+          <CommentInput
+            article_id={article.article_id}
+            setNewComment={setNewComment}
+          />
+        ) : (
+          <p className="text-lg font-fell font-bold">
+            Log in to comment on this article!
+          </p>
+        )
+      ) : null}
       <div className=" bg-color1 grid grid-cols-1 p-8 w-9/12 mt-8 m-64 place-content-center border border-solid border-black bg-transparent rounded-lg ">
         {comments.map(({ author, body, comment_id, created_at, votes }) => {
           const date = moment(created_at).format("DD/MM/YY");
@@ -40,7 +49,7 @@ const CommentsPage = () => {
                 key={comment_id}
                 className="bg-darkpurp p-2 m-2 border rounded-lg"
               >
-                <div className="text-left">At {time}: </div>
+                <p className="text-left">At {time}: </p>
 
                 <p className="font-opensans">{body}</p>
                 <div>Current Votes: {votes}</div>

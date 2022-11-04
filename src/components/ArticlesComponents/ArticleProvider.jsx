@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import InfoCard from "./InfoCard";
-import CommentsPanel from "./CommentsPanel";
+import CommentsPanel from "../CommentsComponents/CommentsPanel";
 import { fetchComments } from "../../Api";
 
 const ArticleProvider = () => {

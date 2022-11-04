@@ -6,7 +6,7 @@ const Articles = ({ articles }) => {
   const handleClick = () => {};
   return (
     <>
-      <div className="p-8 mob:text-sm tab:text-base lap:text-xl desktop:text-2xl">
+      <div className="p-8  mob:text-sm tab:text-base lap:text-xl desktop:text-2xl font-gentium underline">
         Articles
       </div>
       <SearchBar />

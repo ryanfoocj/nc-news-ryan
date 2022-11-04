@@ -51,7 +51,7 @@ const Login = ({ users }) => {
               onChange={handleChange}
             ></input>
             <button
-              className="p-1 mx-2 border border-black rounded-lg "
+              className=" bg-darkpurp p-1 mx-2 border border-black rounded-lg  transition duration-300 ease-in-out delay-150 hover:bg-darkpurp hover:-translate-y-1 hover:scale-110"
               type="submit"
             >
               Login
@@ -73,7 +73,11 @@ const Login = ({ users }) => {
         <p>Visiting as Anonymous, enjoy your stay!</p>
       )}
       {!valid ? (
-        <p className=" text-red-700 p-2">Sorry, that username doesn't exist!</p>
+        !currUser ? (
+          <p className=" text-red-700 p-2">
+            Sorry, that username doesn't exist!
+          </p>
+        ) : null
       ) : null}
 
       {!currUser ? (

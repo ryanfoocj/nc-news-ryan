@@ -8,7 +8,7 @@ import NavBar from "./components/NavBar";
 import Topics from "./components/TopicsComponents/Topics";
 import SortByTopic from "./components/TopicsComponents/SortByTopic";
 import ArticleProvider from "./components/ArticlesComponents/ArticleProvider";
-import CommentsPage from "./components/ArticlesComponents/CommentsPage";
+import CommentsPage from "./components/CommentsComponents/CommentsPage";
 import Login from "./components/Login";
 import { fetchArticles, fetchTopics, fetchUsers } from "./Api.js";
 import { CommentsContext } from ".";
