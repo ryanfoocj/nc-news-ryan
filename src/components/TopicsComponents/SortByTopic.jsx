@@ -1,9 +1,42 @@
 import { Link } from "react-router-dom";
 import TopicButtons from "./TopicButtons";
+import SortBy from "../ArticlesComponents/SortBy";
+import { useState, useEffect } from "react";
+
 const SortByTopic = ({ topicSelect, articles, topics, setTopicSelect }) => {
   const filteredArticles = articles.filter((article) => {
     return article.topic === topicSelect;
   });
+  const [sortBy, setSortBy] = useState("created_at");
+  const [order, setOrder] = useState("descending");
+  const [sortedArticles, setSortedArticles] = useState([{}]);
+
+  useEffect(() => {
+    if (sortBy === "created_at") {
+      if (order === "descending") {
+        setSortedArticles(
+          [...filteredArticles].sort((a, b) =>
+            b[sortBy].localeCompare(a[sortBy])
+          )
+        );
+      }
+      if (order === "ascending") {
+        setSortedArticles(
+          [...filteredArticles].sort((a, b) =>
+            a[sortBy].localeCompare(b[sortBy])
+          )
+        );
+      }
+    } else if (sortBy !== "created_at" && order === "descending") {
+      setSortedArticles(
+        [...filteredArticles].sort((a, b) => b[sortBy] - a[sortBy])
+      );
+    } else {
+      setSortedArticles(
+        [...filteredArticles].sort((a, b) => a[sortBy] - b[sortBy])
+      );
+    }
+  }, [sortBy, order, topicSelect]);
 
   return (
     <div>
@@ -14,8 +47,9 @@ const SortByTopic = ({ topicSelect, articles, topics, setTopicSelect }) => {
         Articles related to {topicSelect}
       </h1>
       <TopicButtons topics={topics} setTopicSelect={setTopicSelect} />
+      <SortBy setOrder={setOrder} setSortBy={setSortBy} />
       <div className=" grid mob:grid-cols-1 tab:grid-cols-2 lap:grid-cols-3 p-8 w-9/12 mt-14 m-64 place-content-center border border-solid border-black bg-transparent rounded-lg ">
-        {filteredArticles.map(
+        {sortedArticles.map(
           ({
             title,
             author,

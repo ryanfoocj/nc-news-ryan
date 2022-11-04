@@ -1,3 +1,4 @@
+import SortBy from "../ArticlesComponents/SortBy";
 import TopicButtons from "./TopicButtons";
 
 const Topics = ({ topics, setTopicSelect }) => {
