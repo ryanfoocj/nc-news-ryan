@@ -63,3 +63,22 @@
 .font-fell {
   font-family: "IM Fell English", serif;
 }
+
+body {
+  background-color: black;
+  background-image: url("Albert_Dock.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.bg-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom right, #002f4b, #dc4225);
+  opacity: 0.6;
+}

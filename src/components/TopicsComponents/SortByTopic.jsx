@@ -40,7 +40,7 @@ const SortByTopic = ({ topicSelect, articles, topics, setTopicSelect }) => {
 
   return (
     <div>
-      <h2 className="p-8 mob:text-sm tab:text-lg lap:text-xl desktop:text-2xl">
+      <h2 className="p-8 mob:text-sm tab:text-lg lap:text-2xl desktop:text-2xl">
         News Topics
       </h2>
       <h1 className="text-lg italic font-medium p-6">
@@ -65,7 +65,7 @@ const SortByTopic = ({ topicSelect, articles, topics, setTopicSelect }) => {
                 key={article_id}
               >
                 <Link to={`/articles/${article_id}`} key={article_id}>
-                  <div className="font-serif italic font-medium underline mob:text-base tab:text-lg lap:text-xl desktop:text-2xl max-w-sm">
+                  <div className="font-serif italic font-medium underline mob:text-base tab:text-lg lap:text-2xl desktop:text-2xl max-w-sm">
                     {title}
                   </div>
                   <div className="text-slate-800 italic mob:text-xs tab:text-sm lap:text-base ">

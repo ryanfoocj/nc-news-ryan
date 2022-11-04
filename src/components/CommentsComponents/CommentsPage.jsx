@@ -20,7 +20,7 @@ const CommentsPage = () => {
 
   return (
     <section className="flex flex-col items-center">
-      <h2 className="py-6 m-4 mob:text-sm tab:text-base lap:text-xl desktop:text-2xl font-serif font-bold underline ">
+      <h2 className="py-6 m-4 mob:text-sm tab:text-base lap:text-2xl desktop:text-2xl font-serif font-bold underline ">
         Comments for "{article.title}"
       </h2>
       {currUser ? (

@@ -34,7 +34,7 @@ const Login = ({ users }) => {
   };
 
   return (
-    <div className="flex flex-col flex-wrap flex-wrapborder border-black self-center mob:h-3 mob:w-3 tab:h-4 tab:w-4 desktop:h-1/3 desktop:w-1/4 rounded-lg justify-center my-24 shadow-2xl">
+    <div className="flex flex-col flex-wrap flex-wrapborder  self-center mob:h-3 mob:w-3  tab:w-4  lap:h-1/3 lap:w-1/4 desktop:h-1/3 desktop:w-1/4 rounded-lg justify-center my-24 shadow-2xl border border-white">
       {!currUser ? (
         <>
           <p className="italic text-bluey">

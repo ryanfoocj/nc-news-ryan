@@ -29,12 +29,12 @@ const Articles = ({ articles }) => {
 
   return (
     <>
-      <div className="p-8  mob:text-sm tab:text-base lap:text-xl desktop:text-2xl font-gentium underline">
+      <div className="p-8  mob:text-sm tab:text-base lap:text-2xl desktop:text-2xl font-gentium underline">
         Articles
       </div>
       <SortBy setSortBy={setSortBy} setOrder={setOrder} />
 
-      <div className=" grid mob:grid-cols-1 tab:grid-cols-2 lap:grid-cols-3 gap-4 p-8 w-9/12 mt-14 m-64 place-content-center border border-solid border-black bg-transparent rounded-lg ">
+      <div className=" grid mob:grid-cols-1 tab:grid-cols-2 lap: grid-cols-3 desktop:grid-cols-3 gap-4 p-8 w-9/12 mt-14 m-64 place-content-center border border-solid border-black bg-transparent rounded-lg ">
         {sortedArticles.map(
           ({
             title,
@@ -53,7 +53,7 @@ const Articles = ({ articles }) => {
                 key={article_id}
               >
                 <Link to={`/articles/${article_id}`} key={article_id}>
-                  <div className="font-gentium italic font-medium underline mob:text-base tab:text-lg lap:text-xl desktop:text-2xl max-w-sm">
+                  <div className="font-gentium italic font-medium underline mob:text-base tab:text-lg lap:text-2xl desktop:text-2xl max-w-sm">
                     {title}
                   </div>
                   <div className="text-slate-800 italic mob:text-xs tab:text-sm lap:text-base ">
